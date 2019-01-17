@@ -10,5 +10,23 @@
     <header><a href="../index.html">Jay's Site</a> | Home</header>
     <nav><a href="../p2.html">Page 2</a></nav>
     <p>Week 1 Demo Page</p>
+    <script>
+       
+        var body = document.querySelector("body");
+       
+        fetch('http://ict.neit.edu/evanrense/salaries.php')
+        .then(function(response) {
+             return response.json();
+        })  
+        .then(function(myJson) {
+            console.log(myJson);
+            var msg = '';
+            for(value in myJson)
+            {
+               msg += `<div>${value}:${myJson[value]}</div>`
+            }
+            body.innerHTML += msg;
+        });
+    </script>
 </body>
 </html>
